@@ -1,0 +1,25 @@
+h1 {
+	/*color: blue;*/
+	/*Use color picker*/
+	/*color: #FF0000;*/
+	color: rgba(255, 0, 0,0.5);
+	border-color: purple;
+	border-width: 5px;
+	border-style: solid;
+}
+li {
+	color: rgb(255,0,0);
+	background: rgb(100,100,100);
+}
+
+h4 {
+	color: rgb(0,255,0);
+	border: 2px dashed purple;
+}
+
+body {
+	background: pink;
+/*	background: url(https://static.pexels.com/photos/139312/pexels-photo-139312.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;*/
+}
