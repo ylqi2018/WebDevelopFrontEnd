@@ -16,50 +16,96 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
-var easyBtn = document.querySelector("#easyBtn");
-var hardBtn = document.querySelector("#hardBtn");
+// var easyBtn = document.querySelector("#easyBtn");
+// var hardBtn = document.querySelector("#hardBtn");
+var modeButtons = document.querySelectorAll(".mode");
 
-easyBtn.addEventListener("click", function() {
-	easyBtn.classList.add("selected");
-	hardBtn.classList.remove("selected");
-	numberOfSquares = 3;
-	colors = generateRandomColors(numberOfSquares);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-	for(var i=0; i<squares.length; i++) {
-		if(colors[i]) {
-			squares[i].style.background = colors[i];
-		} else {
-			squares[i].style.display = "none";
-		}
-	}
-});
+for(var i=0; i<modeButtons.length; i++) {
+	modeButtons[i].addEventListener("click", function() {
+		modeButtons[0].classList.remove("selected")
+		modeButtons[1].classList.remove("selected")
+		this.classList.add("selected");
+		this.textContent === "Easy" ? numberOfSquares = 3: numberOfSquares = 6;
+		// if(this.textContent === "Easy") {
+		// 	numberOfSquares = 3;
+		// } else {
+		// 	numberOfSquares = 6;
+		// }
+		reset();
+		// figure out how many squares to show
+		// pick new colors
+		// pick a new pickedcolor
+		// update page to reflect changes
+	});
+}
 
-hardBtn.addEventListener("click", function() {
-	easyBtn.classList.remove("selected");
-	hardBtn.classList.add("selected");
-	numberOfSquares = 6;
-	colors = generateRandomColors(numberOfSquares);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-	for(var i=0; i<squares.length; i++) {
-		squares[i].style.background = colors[i];
-		squares[i].style.display = "block";
-	}
-});
-
-resetButton.addEventListener("click", function(){
+function reset() {
 	// generate all new colors
 	colors = generateRandomColors(numberOfSquares);
 	// pick a new random color from array
 	pickedColor = pickColor();
+	messageDisplay.textContent = "";
 	// change colorDisplay to match picked Color
 	colorDisplay.textContent = pickedColor;
+	resetButton.textContent = "New Colors";
 	// change colors of squares
 	for(var i=0; i<squares.length; i++) {
-		squares[i].style.background = colors[i];
+		if(colors[i]) {
+			squares.style.display = "block";
+			squares[i].style.background = colors[i];
+		} else {
+			squares[i].style.display = "none";
+		}	
 	}
 	h1.style.background = "steelblue";
+}
+
+// init();
+
+// easyBtn.addEventListener("click", function() {
+// 	easyBtn.classList.add("selected");
+// 	hardBtn.classList.remove("selected");
+// 	numberOfSquares = 3;
+// 	colors = generateRandomColors(numberOfSquares);
+// 	pickedColor = pickColor();
+// 	colorDisplay.textContent = pickedColor;
+// 	for(var i=0; i<squares.length; i++) {
+// 		if(colors[i]) {
+// 			squares[i].style.background = colors[i];
+// 		} else {
+// 			squares[i].style.display = "none";
+// 		}
+// 	}
+// });
+
+// hardBtn.addEventListener("click", function() {
+// 	easyBtn.classList.remove("selected");
+// 	hardBtn.classList.add("selected");
+// 	numberOfSquares = 6;
+// 	colors = generateRandomColors(numberOfSquares);
+// 	pickedColor = pickColor();
+// 	colorDisplay.textContent = pickedColor;
+// 	for(var i=0; i<squares.length; i++) {
+// 		squares[i].style.background = colors[i];
+// 		squares[i].style.display = "block";
+// 	}
+// });
+
+resetButton.addEventListener("click", function(){
+	// generate all new colors
+	// colors = generateRandomColors(numberOfSquares);
+	// // pick a new random color from array
+	// pickedColor = pickColor();
+	// messageDisplay.textContent = "";
+	// // change colorDisplay to match picked Color
+	// colorDisplay.textContent = pickedColor;
+	// this.textContent = "New Colors";
+	// // change colors of squares
+	// for(var i=0; i<squares.length; i++) {
+	// 	squares[i].style.background = colors[i];
+	// }
+	// h1.style.background = "steelblue";
+	reset();
 });
 
 
