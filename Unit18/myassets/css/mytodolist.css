@@ -1,0 +1,11 @@
+body {
+	background: gray;
+	margin: 0;
+}
+
+
+#container {
+	background: #f7f7f7;
+	margin: 100px auto;
+	width: 400px;
+}
