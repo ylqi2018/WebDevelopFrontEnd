@@ -30,3 +30,7 @@ input {
 	font-size: 18px;
 	color: #2980b9;
 }
+
+.fa-plus {
+	float: right;
+}
