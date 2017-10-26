@@ -22,3 +22,7 @@ h1 {
 	text-transform: uppercase;
 	font-weight: normal;
 }
+
+input {
+	width: 100%;
+}
